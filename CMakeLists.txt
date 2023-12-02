@@ -18,6 +18,6 @@ endif()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./target)
 
-message(STATUS "C++ Compiler flags: ${CMAKE_CXX_FLAGS} // ${CMAKE_CXX_STANDARD}")
+message(STATUS "C++ Compiler flags: ${CMAKE_CXX_FLAGS}")
 
 add_executable(nsc nsc.cc)
