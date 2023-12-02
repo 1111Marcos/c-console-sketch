@@ -60,13 +60,13 @@ process_arguments(int argc, char** argv)
 
     while (true)
     {
-        int argumento = getopt_long(argc, argv, short_opts, long_opts, nullptr);
+        int option = getopt_long(argc, argv, short_opts, long_opts, nullptr);
 
-        if (-1 == argumento){
+        if (-1 == option){
             break;
         }
 
-        switch (argumento)
+        switch (option)
         {
         case 'i':   // -i <value> || --integer <value>
             ivalue = std::strtod(optarg, nullptr);
