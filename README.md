@@ -5,7 +5,7 @@ A C++ application skeleton of console program to show how to use `getopt_long(..
 ```bash
 mkdir build && cd build && cmake ..
 # or
-cmake .. -DCMAKE_BUILD_TYPE="Debug"
+mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE="Debug"
 ```
 
 
