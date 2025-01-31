@@ -31,12 +31,12 @@ Getting help
 nsc (Node System Console) 1.0-1
 Copyright(c) 2020-PresentTime : Marcos Freitas de Morais, FI
 Usage: nsc [options]
-Short options: 		GNU long options:       Action
-	-i <value> 		--integer <value>       Pass number to program
-	-b 				--beep                  Beep activate
-	-f 	 			--float <value>         Set sigma value to program
-	-w				--write-to-file <name>  File to write to
-	-h 				--help                  Show help
+Short options:         GNU long options:       Action
+    -i <value>         --integer <value>       Pass number to program
+    -b                 --beep                  Beep activate
+    -f                 --float <value>         Set sigma value to program
+    -w                 --write-to-file <name>  File to write to
+    -h                 --help                  Show help
 ```
 
 Passing a text argument

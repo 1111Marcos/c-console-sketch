@@ -36,20 +36,20 @@ static std::string write_file;
 static int
 show_help() {
 
-	std::string usage = 
+    std::string usage = 
 
 R"u(nsc (Node System Console) 1.0-1
 Copyright(c) 2020-PresentTime : Marcos Freitas de Morais, FI
 Usage: nsc [options]
-Short options: 		GNU long options:       Action
-	-i <value>		--integer <value>       Pass number to program
-	-b				--beep                  Beep activate
-	-f 	 			--float <value>         Set sigma value to program
-	-w				--write-to-file <name>  File to write to
-	-h 				--help                  Show help
+Short options:         GNU long options:       Action
+    -i <value>         --integer <value>       Pass number to program
+    -b                 --beep                  Beep activate
+    -f                 --float <value>         Set sigma value to program
+    -w                 --write-to-file <name>  File to write to
+    -h                 --help                  Show help
 )u";
 
-	std::cout << usage;
+    std::cout << usage;
     return 1;
 }
 
@@ -112,8 +112,8 @@ process_arguments(int argc, char** argv)
 int
 main(int argc, char **argv)
 {
-	std::function<int(void)> fn_help = show_help;
-	std::function<int(int, char*[])> fn_long_arguments = process_arguments;
+    std::function<int(void)> fn_help = show_help;
+    std::function<int(int, char*[])> fn_long_arguments = process_arguments;
 
     return (1 == argc) ? fn_help() : fn_long_arguments(argc, argv);
 }
