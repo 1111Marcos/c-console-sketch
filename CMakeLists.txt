@@ -1,5 +1,9 @@
 #
-# CMakeLists.txt (on /)
+# CMakeLists.txt
+#
+# # On project /
+# $ cmake -S . -B ./build -DCMAKE_CXX_COMPILER=clang++
+# $ cd build && make
 #
 cmake_minimum_required(VERSION 3.22.0)
 
@@ -15,8 +19,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR
     CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG}")  # GNU C: -g
 endif()
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./target)
 
 message(STATUS "C++ Compiler flags: ${CMAKE_CXX_FLAGS}")
 
