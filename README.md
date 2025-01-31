@@ -3,9 +3,9 @@ A C++ application skeleton of console program to show how to use `getopt_long(..
 
 ## Build
 ```bash
-mkdir build && cd build && cmake ..
-# or
-mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE="Debug"
+cmake -S . -B ./build && cd build
+# and
+make
 ```
 
 
@@ -14,35 +14,36 @@ mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE="Debug"
 Passing some arguments
 ```bash
 # on build directory
-./target/nsc --integer 29 --float 15.5 --beep
+./nsc --integer 29 --float 15.5 --beep
 
 # It will generate
-Integer value set to: 29
-Float value set to: 15.5
-Beep is set to true
+Integer value set := 29
+Float value set := 15.5
+Beep is set := true
 ```
 
 Getting help
 ```bash
 # on build directory
-./target/nsc --help
+./nsc --help
 
 # It will generate
-nsc (Node System Console) 1.0-0
-Copyright(C) 2020-PresentTime : Marcos Freitas de Morais, FI
-
--i, --integer <value>:      Pass number to program
--b, --beep:                 Beep activate
--f, --float <value>:        Set sigma value to program
--w, --write-to-file <name>: File to write to
--h, --help:                 Show help
+nsc (Node System Console) 1.0-1
+Copyright(c) 2020-PresentTime : Marcos Freitas de Morais, FI
+Usage: nsc [options]
+Short options: 		GNU long options:       Action
+	-i <value> 		--integer <value>       Pass number to program
+	-b 				--beep                  Beep activate
+	-f 	 			--float <value>         Set sigma value to program
+	-w				--write-to-file <name>  File to write to
+	-h 				--help                  Show help
 ```
 
 Passing a text argument
 ```bash
 # on build directory
-./target/nsc -w save_into_me.txt
+./nsc -w save_into_me.txt
 
 # It will generate
-File to write: save_into_me.txt
+File to write := save_into_me.txt
 ```
