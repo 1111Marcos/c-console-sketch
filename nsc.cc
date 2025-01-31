@@ -3,8 +3,8 @@
  * 2020 July 5
  *
  * Copyright (C) 2020-PresentTime : Marcos Freitas de Morais
- *   em Louvor ao Autor de toda a Ciência
- *    e a Divina Presença EU SOU
+ *   in Praise of Author of Whole Science
+ *    and The Divine Presence 'I AM'.
  *
  * All rights reserved under Apache License 2.0, that it means:
  *
@@ -42,8 +42,8 @@ R"u(nsc (Node System Console) 1.0-1
 Copyright(c) 2020-PresentTime : Marcos Freitas de Morais, FI
 Usage: nsc [options]
 Short options: 		GNU long options:       Action
-	-i <value> 		--integer <value>       Pass number to program
-	-b 				--beep                  Beep activate
+	-i <value>		--integer <value>       Pass number to program
+	-b				--beep                  Beep activate
 	-f 	 			--float <value>         Set sigma value to program
 	-w				--write-to-file <name>  File to write to
 	-h 				--help                  Show help
@@ -113,7 +113,7 @@ int
 main(int argc, char **argv)
 {
 	std::function<int(void)> fn_help = show_help;
-    std::function<int(int, char*[])> fn_long_arguments = process_arguments;
+	std::function<int(int, char*[])> fn_long_arguments = process_arguments;
 
     return (1 == argc) ? fn_help() : fn_long_arguments(argc, argv);
 }
