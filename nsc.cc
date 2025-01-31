@@ -26,23 +26,31 @@
 #include <stdlib.h>     // strtof, strtod
 #include <iostream>
 #include <string>
+#include <functional>
 
 static bool beep = false;
 static int ivalue = -1;
-static float fvalue = 2.034;
-static std::string write_file = "";
+static float fvalue = 0.0;
+static std::string write_file;
 
-static void 
+static int
 show_help() {
 
-    std::cout << 
-        "nsc (Node System Console) 1.0-0\n"
-        "Copyright(C) 2020-PresentTime : Marcos Freitas de Morais, FI\n\n"
-        "-i, --integer <value>:      Pass number to program\n"
-        "-b, --beep:                 Beep activate\n"
-        "-f, --float <value>:        Set sigma value to program\n"
-        "-w, --write-to-file <name>: File to write to\n"
-        "-h, --help:                 Show help\n";
+	std::string usage = 
+
+R"u(nsc (Node System Console) 1.0-1
+Copyright(c) 2020-PresentTime : Marcos Freitas de Morais, FI
+Usage: nsc [options]
+Short options: 		GNU long options:       Action
+	-i <value> 		--integer <value>       Pass number to program
+	-b 				--beep                  Beep activate
+	-f 	 			--float <value>         Set sigma value to program
+	-w				--write-to-file <name>  File to write to
+	-h 				--help                  Show help
+)u";
+
+	std::cout << usage;
+    return 1;
 }
 
 static int
@@ -70,30 +78,30 @@ process_arguments(int argc, char** argv)
         {
         case 'i':   // -i <value> || --integer <value>
             ivalue = std::strtod(optarg, nullptr);
-            std::cout << "Integer value set to: " << ivalue << std::endl;
+            std::cout << "Integer value set := " << ivalue << std::endl;
             break;
 
         case 'b':   // -b || --beep
             beep = true;
-            std::cout << "Beep is set to true\n";
+            std::cout << "Beep is set := true" << std::endl;
             break;
 
         case 'f':   // -f <value> || --float <value>
             fvalue = std::strtof(optarg, nullptr);
-            std::cout << "Float value set to: " << fvalue << std::endl;
+            std::cout << "Float value set := " << fvalue << std::endl;
             break;
 
         case 'w':   // -w <name> || --write-to-file <name>
             write_file = std::string(optarg);
-            std::cout << "File to write: " << write_file << std::endl;
+            std::cout << "File to write := " << write_file << std::endl;
             break;
 
         case 'h':   // -h || --help
-            show_help();
+            (void) show_help();
             break;
 
         default:
-            show_help();
+            (void) show_help();
             return 1;           // See it on shell with: echo $?
         }
     }
@@ -104,14 +112,8 @@ process_arguments(int argc, char** argv)
 int
 main(int argc, char **argv)
 {
-    int exit_status = 1;
+	std::function<int(void)> fn_help = show_help;
+    std::function<int(int, char*[])> fn_long_arguments = process_arguments;
 
-    if (1 == argc) {
-        show_help();
-    }
-    else {
-        exit_status = process_arguments(argc, argv);
-    }
-
-    return exit_status;
+    return (1 == argc) ? fn_help() : fn_long_arguments(argc, argv);
 }
